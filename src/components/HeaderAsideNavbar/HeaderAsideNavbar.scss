@@ -1,0 +1,39 @@
+.HeaderAsideNavbar {
+  display: flex;
+  align-items: center;
+
+  color: #fff;
+
+  height: 80px;
+
+  padding: 10px;
+
+  background-image: linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%);
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+
+  .AvatarWrapper {
+    background: #fff;
+
+    width: 53px;
+    height: 53px;
+
+    margin-right: 15px;
+
+    border-radius: 50%;
+
+    position: relative;
+
+    .avatar {
+      width: 50px;
+      height: 50px;
+  
+      border-radius: 50%;
+  
+      position: absolute;
+      top: 50%;
+      right: 50%;
+
+      transform: translate(50%, -50%);
+    }
+  }
+}
