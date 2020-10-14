@@ -1,0 +1,19 @@
+.MenuNavbar {
+  padding: 10px;
+
+  .MenuButton {
+    outline: none;
+    background: transparent;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    padding: 5px 15px;
+    margin-right: 20px;
+
+    border: none;
+    border-bottom: 3px solid #fc6473;
+
+    cursor: pointer;
+  }
+}
