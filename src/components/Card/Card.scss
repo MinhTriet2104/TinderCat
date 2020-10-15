@@ -6,6 +6,10 @@
 
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
 
+  position: relative;
+
+  cursor: pointer;
+
   .CardImage {
     width: 100%;
     height: 100%;
@@ -14,5 +18,56 @@
 
     background-position: center;
     background-size: cover;
+  }
+
+  .CardMask {
+    background: linear-gradient(360deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 35%, rgba(255,255,255,0) 100%);
+
+    border-radius: 10px;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .CardBody {
+    color: #fff;
+    font-size: 2rem;
+
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+
+    .CardInfo {
+      display: flex;
+      align-items: baseline;
+
+      .CardAge {
+        font-size: 1.6rem;
+        color: #ddd;
+        
+        margin-left: 15px;
+      }
+    }
+
+    .CardDescription {
+      font-size: 1.2rem;
+
+      margin-top: 5px;
+    }
+
+    svg {
+      position: absolute;
+      right: 5%;
+      top: 5%;
+
+      transition: all .3s ease-out;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
   }
 }
