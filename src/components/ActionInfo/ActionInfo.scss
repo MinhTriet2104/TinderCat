@@ -1,0 +1,20 @@
+.ActionInfo {
+  display: flex;
+
+  position: absolute;
+  bottom: 5%;
+
+  .recsToolbar {
+    display: flex;
+    align-items: center;
+
+    color: #545454;
+    font-weight: bold;
+
+    margin: 0 7px;
+
+    .Vam {
+      margin-left: 5px;
+    }
+  }
+}
