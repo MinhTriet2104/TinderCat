@@ -15,8 +15,8 @@ export const setLikeList = (likelist) => ({
 });
 
 export const requestSetSuperLikeList = () => async (dispatch) => {
-  const res = await axios.get(API_URL + "likes");
-  dispatch(setLikeList(res.data));
+  const res = await axios.get(API_URL + "superlikes");
+  dispatch(setSuperLikeList(res.data));
 };
 
 export const setSuperLikeList = (superlikelist) => ({
