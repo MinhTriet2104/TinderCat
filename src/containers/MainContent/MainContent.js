@@ -24,13 +24,12 @@ const MainContent = () => {
 
   useEffect(() => {
     if (cats.length) setCurCats(cats[0]);
-    console.log(cats);
+    console.log(cats[0]);
   }, [cats]);
 
   return (
     <div className="MainContent">
-      <Card curCat={curCat} />
-
+      <Card curCat={curCat}/>
       <div className="ButtonsArea">
         <ActionButton>
           <svg
