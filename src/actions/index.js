@@ -20,7 +20,7 @@ export const requestSetSuperLikeList = () => async (dispatch) => {
 };
 
 export const setSuperLikeList = (superlikelist) => ({
-  type: types.SET_LIKE_LIST,
+  type: types.SET_SUPER_LIKE_LIST,
   superlikelist,
 });
 
