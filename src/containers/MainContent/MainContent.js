@@ -55,13 +55,13 @@ const MainContent = () => {
   };
 
   const handleSuperLike = () => {
-    setCats(updateCatsAfterClick(cats));
     dispatch(requestAddSuperLikeList(curCat));
+    setCats(updateCatsAfterClick(cats));
   };
 
   const handleLike = () => {
-    setCats(updateCatsAfterClick(cats));
     dispatch(requestAddLikeList(curCat));
+    setCats(updateCatsAfterClick(cats));
   };
 
   return (
