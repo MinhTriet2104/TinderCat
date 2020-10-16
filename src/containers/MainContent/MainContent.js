@@ -29,7 +29,7 @@ const MainContent = () => {
 
   return (
     <div className="MainContent">
-      <Card />
+      <Card curCat={curCat} />
 
       <div className="ButtonsArea">
         <ActionButton>
