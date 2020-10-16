@@ -24,14 +24,31 @@ const MainContent = () => {
 
   useEffect(() => {
     if (cats.length) setCurCats(cats[0]);
-    console.log(cats[0]);
   }, [cats]);
+
+  const updateCatsAfterClick = (arrCats) => {
+    return arrCats.slice(1);
+  };
+
+  const handleNope = () => {
+    setCats(updateCatsAfterClick(cats));
+  };
+
+  const handleSuperLike = () => {
+    setCats(updateCatsAfterClick(cats));
+  };
+
+  const handleLike = () => {
+    setCats(updateCatsAfterClick(cats));
+  };
 
   return (
     <div className="MainContent">
-      <Card curCat={curCat}/>
+
+      <Card curCat={curCat}  />
+
       <div className="ButtonsArea">
-        <ActionButton>
+        <ActionButton handleClick={handleNope}>
           <svg
             height="24px"
             viewBox="0 0 365.71733 365"
@@ -56,7 +73,7 @@ const MainContent = () => {
           </svg>
         </ActionButton>
 
-        <ActionButton>
+        <ActionButton handleClick={handleSuperLike}>
           <svg
             enableBackground="new 0 0 24 24"
             height="24px"
@@ -82,7 +99,7 @@ const MainContent = () => {
           </svg>
         </ActionButton>
 
-        <ActionButton>
+        <ActionButton handleClick={handleLike}>
           <svg
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
@@ -116,6 +133,7 @@ const MainContent = () => {
       </div>
 
       <Actioninfo />
+      
     </div>
   );
 };
