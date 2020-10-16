@@ -32,16 +32,15 @@
     margin: 0 auto;
 }
 .Icon-Locate{
-    top: 10% !important;
+    top: 17% !important;
     left: 5px !important;
     
 }
 .Located{
     padding-left: 20px;
+    font-size: 15px;
+    color: #514f4f;
 }
-.Icon-Down{
-    position: relative;
-    display: block;
-    top: 18%;
-    left: 18%;
+.Img-Gallery img{
+    border-radius: 5px;
 }

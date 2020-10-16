@@ -10,6 +10,8 @@ class Card extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleClickDown = this.handleClickDown.bind(this);
   }
+
+
   handleClickDown() {
     this.setState(state => ({
       isToggleOn: !state.isToggleOn
@@ -21,6 +23,23 @@ class Card extends React.Component {
     }));
   } 
   render(){
+    var name ="";
+    var age = "";
+    var avt = "";
+   
+    if(this.props.curCat != null)
+    {      
+      console.log(this.props.curCat);
+         name = this.props.curCat.name;
+         age = this.props.curCat.age;    
+         avt = this.props.curCat.avatar;
+    }
+    else{
+      name = '';
+         age = '';    
+         avt = '';
+    }
+    
     return (
       <div className="Card" >
         <div
@@ -32,8 +51,10 @@ class Card extends React.Component {
         <div className="CardMask"></div>
         <div className="CardBody" >
           <div className="CardInfo" >
-            <div className="CardName">Cat</div>
-            <div className="CardAge">5</div>
+            <div className="CardName">{name}</div>
+            <div className="CardAge">{age}</div>
+          <div>          
+          </div> 
           </div>
           <div className="CardDescription">
             “I have studied many philosophers and many cats. The wisdom of cats is
@@ -55,7 +76,7 @@ class Card extends React.Component {
             ></path>
             <title id="profile">Open Profile</title>
           </svg>          
-            {this.state.isToggleOn ? <CardInfo clickDown={this.handleClickDown}/> : ''}    
+            {this.state.isToggleOn ? <CardInfo clickDown={this.handleClickDown} name={name} age={age} avatar={avt}/> : ''}    
         </div>
       </div>
     );
@@ -64,4 +85,4 @@ class Card extends React.Component {
   
 };
 
-export default Card;
+export default (Card);

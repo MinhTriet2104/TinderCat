@@ -67,7 +67,7 @@ const MainContent = () => {
   return (
     <div className="MainContent">
 
-      <Card curCat={curCat}  />
+      <Card curCat={curCat}/>
 
       <div className="ButtonsArea">
         <ActionButton handleClick={handleNope}>
