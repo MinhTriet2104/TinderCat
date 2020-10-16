@@ -1,5 +1,11 @@
 import { combineReducers } from "redux";
 
-const reducer = combineReducers({});
+import likelist from "./likelist";
+import superlikelist from "./superlikelist";
+
+const reducer = combineReducers({
+  likelist,
+  superlikelist,
+});
 
 export default reducer;

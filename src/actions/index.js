@@ -36,7 +36,7 @@ export const addLikeList = (cat) => ({
 
 export const requestAddSuperLikeList = (cat) => async (dispatch) => {
   const res = await axios.post(API_URL + "superlikes", cat);
-  dispatch(addLikeList(res.data));
+  dispatch(addSuperLikeList(res.data));
 };
 
 export const addSuperLikeList = (cat) => ({

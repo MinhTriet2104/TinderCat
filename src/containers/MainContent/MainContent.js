@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 // Components
 import Card from "../../components/Card/Card";
@@ -8,12 +9,17 @@ import Actioninfo from "../../components/ActionInfo/ActionInfo";
 // styles
 import "./MainContent.scss";
 
+// actions
+import { requestSetLikeList, requestSetSuperLikeList, requestAddLikeList, requestAddSuperLikeList } from '../../actions';
+
 // helpers
-import { getCats } from "../../helpers";
+import { getCats, getLikes, getSuperLikes } from "../../helpers";
 
 const MainContent = () => {
   const [cats, setCats] = useState([]);
   const [curCat, setCurCats] = useState(null);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     (async () => {
@@ -21,6 +27,20 @@ const MainContent = () => {
       setCats(catsData);
     })();
   }, []);
+
+  useEffect(() => {
+    (async () => {
+      const likesData = await getLikes();
+      dispatch(requestSetLikeList(likesData));
+    })();
+  }, [dispatch]);
+
+  useEffect(() => {
+    (async () => {
+      const superLikesData = await getSuperLikes();
+      dispatch(requestSetSuperLikeList(superLikesData));
+    })();
+  }, [dispatch]);
 
   useEffect(() => {
     if (cats.length) setCurCats(cats[0]);
@@ -36,10 +56,12 @@ const MainContent = () => {
 
   const handleSuperLike = () => {
     setCats(updateCatsAfterClick(cats));
+    dispatch(requestAddSuperLikeList(curCat));
   };
 
   const handleLike = () => {
     setCats(updateCatsAfterClick(cats));
+    dispatch(requestAddLikeList(curCat));
   };
 
   return (
