@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 // Components
 import Card from "../../components/Card/Card";
@@ -8,7 +8,25 @@ import Actioninfo from "../../components/ActionInfo/ActionInfo";
 // styles
 import "./MainContent.scss";
 
+// helpers
+import { getCats } from "../../helpers";
+
 const MainContent = () => {
+  const [cats, setCats] = useState([]);
+  const [curCat, setCurCats] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      const catsData = await getCats();
+      setCats(catsData);
+    })();
+  }, []);
+
+  useEffect(() => {
+    if (cats.length) setCurCats(cats[0]);
+    console.log(cats);
+  }, [cats]);
+
   return (
     <div className="MainContent">
       <Card />
