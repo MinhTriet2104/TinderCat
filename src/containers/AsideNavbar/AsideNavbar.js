@@ -9,7 +9,7 @@ import "./AsideNavbar.scss";
 
 const AsideNavbar = () => {
   return (
-    <aside className="navbar">
+    <aside className="AsideNavbar">
       <HeaderAsideNavbar />
       <MenuNavbar />
     </aside>
