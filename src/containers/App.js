@@ -5,9 +5,12 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import AsideNavbar from "./AsideNavbar/AsideNavbar";
 import MainContent from "./MainContent/MainContent";
 import Profile from "./Profile/Profile";
+import ChangeProfile from "./Profile/ChangeProfile";
+
 
 // styles
 import "./App.scss";
+import MainProfile from "./Profile/MainProfile";
 
 function App() {
   return (
@@ -15,7 +18,8 @@ function App() {
       <AsideNavbar />
       <Switch>
         <Route exact path="/" component={MainContent} />
-        <Route exact path="/profile" component={Profile} />
+       <MainProfile>  </MainProfile>
+
         <Route>
           <Redirect to="/" />
         </Route>
