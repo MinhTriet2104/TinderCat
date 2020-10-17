@@ -19,7 +19,6 @@ function App() {
       <Switch>
         <Route exact path="/" component={MainContent} />
        <MainProfile>  </MainProfile>
-
         <Route>
           <Redirect to="/" />
         </Route>

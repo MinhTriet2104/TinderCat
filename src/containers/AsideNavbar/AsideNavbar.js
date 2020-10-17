@@ -2,6 +2,7 @@ import React from "react";
 
 // component
 import HeaderAsideNavbar from "../../components/HeaderAsideNavbar/HeaderAsideNavbar";
+import LikeList from "../../components/LikeList/LikeList";
 import MenuNavbar from "../../components/MenuNavbar/MenuNavbar";
 
 // style
@@ -12,6 +13,7 @@ const AsideNavbar = () => {
     <aside className="AsideNavbar">
       <HeaderAsideNavbar />
       <MenuNavbar />
+      <LikeList/>
     </aside>
   );
 };
