@@ -29,12 +29,12 @@ function CardInfo(props){
             <div>
                <Container>
                     <Row >
-                        <Col className="Img-Gallery" sm={6} md={6}><img alt="trypical" src="https://i.pinimg.com/564x/fa/a2/b8/faa2b89e8b3889bbf7310b113e74ced9.jpg" width="100%" height="100px"/></Col>
-                        <Col className="Img-Gallery" sm={6} md={6}><img alt="trypical" src="https://i.pinimg.com/564x/fa/a2/b8/faa2b89e8b3889bbf7310b113e74ced9.jpg" width="100%" height="100px"/></Col>                    
+                        <Col className="Img-Gallery" sm={6} md={6}><img alt="trypical" src={props.avatar} width="100%" height="100px"/></Col>
+                        <Col className="Img-Gallery" sm={6} md={6}><img alt="trypical" src={props.avatar} width="100%" height="100px"/></Col>                    
                     </Row>
                     <Row >
-                        <Col className="Img-Gallery" sm={6} md={6}><img alt="trypical" src="https://i.pinimg.com/564x/fa/a2/b8/faa2b89e8b3889bbf7310b113e74ced9.jpg" width="100%" height="100px"/></Col>                 
-                        <Col className="Img-Gallery" sm={6} md={6}><img alt="trypical" src="https://i.pinimg.com/564x/fa/a2/b8/faa2b89e8b3889bbf7310b113e74ced9.jpg" width="100%" height="100px"/></Col>                 
+                        <Col className="Img-Gallery" sm={6} md={6}><img alt="trypical" src={props.avatar} width="100%" height="100px"/></Col>                 
+                        <Col className="Img-Gallery" sm={6} md={6}><img alt="trypical" src={props.avatar} width="100%" height="100px"/></Col>                 
                     </Row>
                 </Container> 
             </div>

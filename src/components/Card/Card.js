@@ -26,6 +26,7 @@ class Card extends React.Component {
     var name ="";
     var age = "";
     var avt = "";
+    var urlbg = "url(";
    
     if(this.props.curCat != null)
     {      
@@ -33,6 +34,7 @@ class Card extends React.Component {
          name = this.props.curCat.name;
          age = this.props.curCat.age;    
          avt = this.props.curCat.avatar;
+         urlbg += avt+")";
     }
     else{
       name = '';
@@ -45,7 +47,7 @@ class Card extends React.Component {
         <div
           className="CardImage"
           style={{
-            backgroundImage: `url(https://i.pinimg.com/564x/fa/a2/b8/faa2b89e8b3889bbf7310b113e74ced9.jpg)`,
+            backgroundImage:  urlbg,
           }}
         ></div>
         <div className="CardMask"></div>
