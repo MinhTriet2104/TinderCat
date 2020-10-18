@@ -27,6 +27,7 @@ class Card extends React.Component {
     var age = "";
     var avt = "";
     var urlbg = "url(";
+    var des, bio = "";
    
     if(this.props.curCat != null)
     {      
@@ -35,6 +36,8 @@ class Card extends React.Component {
          age = this.props.curCat.age;    
          avt = this.props.curCat.avatar;
          urlbg += avt+")";
+         des = this.props.curCat.description;
+         bio = this.props.curCat.bio;
     }
     else{
       name = '';
@@ -59,8 +62,7 @@ class Card extends React.Component {
           </div> 
           </div>
           <div className="CardDescription">
-            “I have studied many philosophers and many cats. The wisdom of cats is
-            infinitely superior.”
+            {des}
           </div>
           <svg
             viewBox="0 0 24 24"
@@ -78,7 +80,7 @@ class Card extends React.Component {
             ></path>
             <title id="profile">Open Profile</title>
           </svg>          
-            {this.state.isToggleOn ? <CardInfo clickDown={this.handleClickDown} name={name} age={age} avatar={avt}/> : ''}    
+            {this.state.isToggleOn ? <CardInfo clickDown={this.handleClickDown} name={name} age={age} avatar={avt} des={des} bio={bio}/> : ''}    
         </div>
       </div>
     );

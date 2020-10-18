@@ -26,6 +26,9 @@ function CardInfo(props){
             <div className="Located">
                <span><LocationOnIcon className="Icon-Locate"/></span>  39 kilometers away
             </div>
+            <div className="bio">
+                {props.bio}
+            </div>
             <div>
                <Container>
                     <Row >
