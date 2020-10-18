@@ -1,14 +1,13 @@
-<<<<<<< Updated upstream
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-=======
-import React, { Profiler } from "react";
->>>>>>> Stashed changes
 
 // Components
+import Card from "../../components/Card/Card";
+import ActionButton from "../../components/ActionButton/ActionButton";
+import Actioninfo from "../../components/ActionInfo/ActionInfo";
 
+// styles
 import "./MainContent.scss";
-<<<<<<< Updated upstream
 
 // actions
 import { requestSetLikeList, requestSetSuperLikeList, requestAddLikeList, requestAddSuperLikeList } from '../../actions';
@@ -16,12 +15,6 @@ import { requestSetLikeList, requestSetSuperLikeList, requestAddLikeList, reques
 // helpers
 import { getCats, getLikes, getSuperLikes } from "../../helpers";
 
-=======
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Card from "../../components/Card/Card";
-import Profile from "../../components/Profile/Profile";
-import ChangeInfo from "../../components/Profile/ChangeInfo";
->>>>>>> Stashed changes
 const MainContent = () => {
   const [cats, setCats] = useState([]);
   const [curCat, setCurCats] = useState(null);
@@ -73,7 +66,6 @@ const MainContent = () => {
 
   return (
     <div className="MainContent">
-<<<<<<< Updated upstream
 
       <Card curCat={curCat}/>
 
@@ -165,13 +157,6 @@ const MainContent = () => {
       <Actioninfo />
       
     </div>
-=======
-        <Route path="/" exact component={Card}/>
-    <Route path="/profile" component={Profile}/>
-    <Route path="/change" component={ChangeInfo}/>
-        <div className="ButtonsArea"></div>
-      </div>
->>>>>>> Stashed changes
   );
 };
 

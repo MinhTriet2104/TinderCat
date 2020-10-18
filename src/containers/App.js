@@ -4,12 +4,8 @@ import { Route, Switch, Redirect } from "react-router-dom";
 // Component
 import AsideNavbar from "./AsideNavbar/AsideNavbar";
 import MainContent from "./MainContent/MainContent";
-<<<<<<< Updated upstream
 import Profile from "./Profile/Profile";
 import ChangeProfile from "./Profile/ChangeProfile";
-=======
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
->>>>>>> Stashed changes
 
 
 // styles
@@ -18,9 +14,7 @@ import MainProfile from "./Profile/MainProfile";
 
 function App() {
   return (
-    <Router>
     <div className="App">
-  
       <AsideNavbar />
       <Switch>
         <Route exact path="/" component={MainContent} />
@@ -30,7 +24,6 @@ function App() {
         </Route>
       </Switch>
     </div>
-    </Router>
   );
 }
 
