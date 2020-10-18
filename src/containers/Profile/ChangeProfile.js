@@ -1,10 +1,13 @@
-import { BrowserRouter as Router, Link } from "react-router-dom";
-
 import React from "react";
+
+import Link from "../../common/CustomLink";
 
 import "./ChangeProfile.scss";
 
 const ChangeProfile = () => {
+
+  const handleDescriptionChange = () => {}
+
   return (
     <div className="all">
       <div className="ChangeInfo">
@@ -20,8 +23,9 @@ const ChangeProfile = () => {
               rows="10"
               cols="30"
               maxLength="500"
+              value="Sống nội tâm =)))"
+              onChange={handleDescriptionChange}
             >
-              Sống nội tâm =))) 
             </textarea>
 
             <label htmlFor="nameAbout"> TÊN</label>
@@ -58,7 +62,7 @@ const ChangeProfile = () => {
             </div>
           </div>
 
-        <Link to="/profile">  <button className="btnSave">Lưu</button></Link> 
+        <Link to="/profile"><button className="btnSave">Lưu</button></Link> 
         </div>
       </div>
     </div>

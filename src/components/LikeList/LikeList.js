@@ -4,17 +4,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //style
 import "./LikeList.scss";
 
-function LikeList(props){
+function LikeList() {
+  const likeList = useSelector((state) => state.likelist);
 
-  const likeList = useSelector(state => state.likelist);
-
-  return(
+  return (
     <ul className="likeList" id="likeList">
-      {likeList.map(like => (
+      {likeList.map((like) => (
         <li key={like.id} className="aroundLike">
           <div className="row">
             <div className="col-md-3">
-              <img src={like.avatar} alt="avatar" className="avatar"/>
+              <img src={like.avatar} alt="avatar" className="avatar" />
             </div>
             <div className="col-md-3">
               <div className="row">
@@ -26,17 +25,29 @@ function LikeList(props){
             </div>
             <div className="col-md-6">
               <button className="btn btn-link btnLikeList">
-                <img src="https://icon-library.com/images/icon-delete/icon-delete-16.jpg" alt="delete" className="iconBtnLikeList"/>
+                <img
+                  src="https://icon-library.com/images/icon-delete/icon-delete-16.jpg"
+                  alt="delete"
+                  className="iconBtnLikeList"
+                />
               </button>
               <button className="btn btn-link btnLikeList">
-                <img src="https://st2.depositphotos.com/5266903/8456/v/950/depositphotos_84568954-stock-illustration-arrow-up-flat-red-color.jpg" alt="up" className="iconBtnLikeList"/>
+                <img
+                  src="https://st2.depositphotos.com/5266903/8456/v/950/depositphotos_84568954-stock-illustration-arrow-up-flat-red-color.jpg"
+                  alt="up"
+                  className="iconBtnLikeList"
+                />
               </button>
               <button className="btn btn-link btnLikeList">
-                <img src="https://st2.depositphotos.com/5266903/8456/v/950/depositphotos_84568938-stock-illustration-arrow-down-flat-red-color.jpg" alt="down" className="iconBtnLikeList"/>
+                <img
+                  src="https://st2.depositphotos.com/5266903/8456/v/950/depositphotos_84568938-stock-illustration-arrow-down-flat-red-color.jpg"
+                  alt="down"
+                  className="iconBtnLikeList"
+                />
               </button>
             </div>
           </div>
-          </li>
+        </li>
       ))}
     </ul>
   );

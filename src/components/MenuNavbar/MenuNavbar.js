@@ -1,5 +1,4 @@
 import React from "react";
-import LikeList from "../LikeList/LikeList";
 import "../LikeList/LikeList.scss";
 
 // styles

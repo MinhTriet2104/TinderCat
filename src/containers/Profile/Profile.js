@@ -1,31 +1,28 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Link from "../../common/CustomLink";
 
 import "./Profile.scss";
 
 const Profile = () => {
   return (
- 
-
-    
     <div className="Profile">
       <div className="InfoProfile">
-        <img className="ImgProfile" src="img/download.jpg" />
+        <img className="ImgProfile" alt="img" src="img/download.jpg" />
       </div>
       <div className="CardMask"></div>
       <div className="CardBody">
         <div className="CardInfo">
           <div className="CardName">Mèo Anh</div>
           <div className="CardAge">5</div>
-         
-        </div> 
+        </div>
         <div className="btnInfo">
-
-        <Link to="/change"> <button className="btnEditInfo">Sửa Thông Tin</button> </Link> 
+          <Link to="/change">
+            {" "}
+            <button className="btnEditInfo">Sửa Thông Tin</button>{" "}
+          </Link>
         </div>
       </div>
     </div>
- 
   );
 };
 
