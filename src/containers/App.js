@@ -4,8 +4,6 @@ import { Route, Switch, Redirect } from "react-router-dom";
 // Component
 import AsideNavbar from "./AsideNavbar/AsideNavbar";
 import MainContent from "./MainContent/MainContent";
-import Profile from "./Profile/Profile";
-import ChangeProfile from "./Profile/ChangeProfile";
 
 
 // styles
@@ -18,7 +16,7 @@ function App() {
       <AsideNavbar />
       <Switch>
         <Route exact path="/" component={MainContent} />
-       <MainProfile>  </MainProfile>
+        <MainProfile />
         <Route>
           <Redirect to="/" />
         </Route>
