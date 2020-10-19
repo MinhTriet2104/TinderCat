@@ -1,0 +1,47 @@
+$bg-border: #FEFEFE;
+
+.superlikelist {
+    position: relative;
+    overflow: auto;
+    visibility: hidden;
+    width: 325px;
+    height: 620px;
+    bottom: 640px;
+}
+
+.row-sp-like {
+    padding: 10px;
+    &:hover{
+        background-color: #e6e4e1;
+    }
+}
+
+.img-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: -15px;
+}
+.title-member {
+    margin-left: -10px;
+    padding-right: 1px;
+    margin-right: 10px;
+}
+
+.dateSuperLike {
+    color: gray;
+}
+.btn-icon {
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+    border: 1px solid $bg-border;
+    border-radius: 5px;
+    background: $bg-border;
+    padding: 1.8px;
+    margin: 0 0.4px;
+}
+
+.img-icon {
+    width: 20px;
+    margin: 7px;
+    padding: 2px;
+}

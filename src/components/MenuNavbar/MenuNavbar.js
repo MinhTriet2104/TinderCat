@@ -9,10 +9,14 @@ const MenuNavbar = () => {
   //Nhu
   const handleLikeClick = () => {
     document.getElementById("likeList").style.visibility = 'visible';
+    //Huyen
+    document.getElementById("superLikeList").style.visibility = 'hidden';
   }
   //Nhu
   const handleSuperLikeClick = () => {
     document.getElementById("likeList").style.visibility = 'hidden';
+    //Huyen
+    document.getElementById("superLikeList").style.visibility = 'visible';
   }
   return (
     <div className="MenuNavbar">

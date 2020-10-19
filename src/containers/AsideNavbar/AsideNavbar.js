@@ -4,6 +4,7 @@ import React from "react";
 import HeaderAsideNavbar from "../../components/HeaderAsideNavbar/HeaderAsideNavbar";
 import LikeList from "../../components/LikeList/LikeList";
 import MenuNavbar from "../../components/MenuNavbar/MenuNavbar";
+import SuperLikeList from "../../components/SuperLikeList/SuperLikeList";
 
 // style
 import "./AsideNavbar.scss";
@@ -14,6 +15,7 @@ const AsideNavbar = () => {
       <HeaderAsideNavbar />
       <MenuNavbar />
       <LikeList/>
+      <SuperLikeList/>
     </aside>
   );
 };
