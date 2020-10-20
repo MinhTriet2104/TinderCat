@@ -12,9 +12,13 @@
     margin-right: 20px;
 
     border: none;
-    border-bottom: 3px solid #fff;
-    
+
     cursor: pointer;
+  }
+
+  .active {
+    border: none;
+    border-bottom: 3px solid #ff9a44;  
   }
 
 }
