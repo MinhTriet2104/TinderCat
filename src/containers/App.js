@@ -9,6 +9,7 @@ import MainContent from "./MainContent/MainContent";
 // styles
 import "./App.scss";
 import MainProfile from "./Profile/MainProfile";
+import MainItem from "../components/ListItem/MainItem";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
       <AsideNavbar />
       <Switch>
         <Route exact path="/" component={MainContent} />
+        <Route exact path="/list" component={MainItem} />
+
         <MainProfile />
         <Route>
           <Redirect to="/" />

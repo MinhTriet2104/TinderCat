@@ -1,86 +1,26 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import Link from "../../common/CustomLink";
-
-// Components
-import Card from "../../components/Card/Card";
+import React, { Component } from "react";
+import "./ListItem.scss";
 import ActionButton from "../../components/ActionButton/ActionButton";
-import Actioninfo from "../../components/ActionInfo/ActionInfo";
+class ListItem extends Component {
+  render() {
+   
+ 
+   
+    console.log(this.props.cats);
+    return (
+      <div>
+        <div className="BodyItem">
+          {this.props.cats.map((tdata, i) => (
+            <div className="ListItem" key={tdata.id}>
+              <img className="AvtItem" alt="avatar item" src={tdata.avatar} />
+              <span className="NameItem">{tdata.name}</span>
 
-// styles
-import "./MainContent.scss";
-
-// actions
-import {
-  requestSetLikeList,
-  requestSetSuperLikeList,
-  requestAddLikeList,
-  requestAddSuperLikeList,
-} from "../../actions";
-
-// helpers
-import { getCats, getLikes, getSuperLikes } from "../../helpers";
-
-const MainContent = () => {
-  const [cats, setCats] = useState([]);
-  const [curCat, setCurCats] = useState(null);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    (async () => {
-      const catsData = await getCats();
-      setCats(catsData);
-    })();
-  }, []);
-
-  useEffect(() => {
-    (async () => {
-      const likesData = await getLikes();
-      dispatch(requestSetLikeList(likesData));
-    })();
-  }, [dispatch]);
-
-  useEffect(() => {
-    (async () => {
-      const superLikesData = await getSuperLikes();
-      dispatch(requestSetSuperLikeList(superLikesData));
-    })();
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (cats.length) setCurCats(cats[0]);
-  }, [cats]);
-
-  const updateCatsAfterClick = (arrCats) => {
-    return arrCats.slice(1);
-  };
-
-  const handleNope = () => {
-    setCats(updateCatsAfterClick(cats));
-  };
-
-  const handleSuperLike = () => {
-    dispatch(requestAddSuperLikeList(curCat));
-    setCats(updateCatsAfterClick(cats));
-  };
-
-  const handleLike = () => {
-    dispatch(requestAddLikeList(curCat));
-    setCats(updateCatsAfterClick(cats));
-  };
-
-  return (
-    <div className="MainContent">
-     
-
-      <Card curCat={curCat}></Card>
-      <div className="ButtonsArea">
-        <ActionButton handleClick={handleNope}>
+              <div className="ButtonsArea">
+        <ActionButton >
           <svg
-            height="24px"
+            height="20px"
             viewBox="0 0 365.71733 365"
-            width="24px"
+            width="20px"
             xmlns="http://www.w3.org/2000/svg"
           >
             <linearGradient
@@ -101,7 +41,7 @@ const MainContent = () => {
           </svg>
         </ActionButton>
 
-        <ActionButton handleClick={handleSuperLike}>
+        <ActionButton >
           <svg
             enableBackground="new 0 0 24 24"
             height="24px"
@@ -127,7 +67,7 @@ const MainContent = () => {
           </svg>
         </ActionButton>
 
-        <ActionButton handleClick={handleLike}>
+        <ActionButton>
           <svg
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
@@ -159,12 +99,13 @@ const MainContent = () => {
           </svg>
         </ActionButton>
       </div>
+     
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+}
 
-      <Actioninfo />
-
-<Link to="/list"><img alt="next" className="toListItem" src="https://w7.pngwing.com/pngs/767/873/png-transparent-greater-than-sign-symbol-mathematics-signo-greater-than-angle-logo-sign-thumbnail.png" /></Link>
-    </div>
-  );
-};
-
-export default MainContent;
+export default ListItem;

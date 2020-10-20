@@ -1,12 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
-//style
 import "./LikeList.scss";
 
 function LikeList() {
   const likeList = useSelector((state) => state.likelist);
-
+  console.log(likeList);
   return (
     <ul className="likeList" id="likeList">
       {likeList.map((like) => (

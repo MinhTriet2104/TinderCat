@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 // component
 import HeaderAsideNavbar from "../../components/HeaderAsideNavbar/HeaderAsideNavbar";
@@ -10,12 +10,14 @@ import SuperLikeList from "../../components/SuperLikeList/SuperLikeList";
 import "./AsideNavbar.scss";
 
 const AsideNavbar = () => {
+  const [isLikeList, setIsLikeList] = useState(true)
+
   return (
     <aside className="AsideNavbar">
       <HeaderAsideNavbar />
-      <MenuNavbar />
-      <LikeList/>
-      <SuperLikeList/>
+      <MenuNavbar handleMenuChange={setIsLikeList} isLikeList={isLikeList} />
+      {isLikeList ? <LikeList/> : <SuperLikeList/>}
+    
     </aside>
   );
 };

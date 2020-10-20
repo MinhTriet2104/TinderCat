@@ -7,7 +7,6 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 import DetailsTwoToneIcon from '@material-ui/icons/DetailsTwoTone';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 function CardInfo(props){
     return(
         <div className="Card-Info">

@@ -7,7 +7,7 @@ class ChangeProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 500,
+      count: 500
     };
   }
   render() {

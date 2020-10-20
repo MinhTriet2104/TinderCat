@@ -1,11 +1,14 @@
 import React from "react";
+
 import Link from "../../common/CustomLink";
 
 import "./Profile.scss";
 
 const Profile = () => {
+
   return (
     <div className="Profile">
+      
       <div className="InfoProfile">
         <img className="ImgProfile" alt="img" src="img/download.jpg" />
       </div>
