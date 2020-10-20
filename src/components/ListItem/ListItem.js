@@ -11,6 +11,7 @@ class ListItem extends Component {
       <div className="ListItem" key={cat.id}>
         <img className="AvtItem" alt="avatar item" src={cat.avatar} />
         <span className="NameItem">{cat.name}</span>
+        <span className="AgeItem">{cat.age}</span>
 
         <div className="ButtonsArea">
           <ActionButton handleClick={() => handleNope()}>
@@ -96,7 +97,6 @@ class ListItem extends Component {
             </svg>
           </ActionButton>
         </div>
-      
       </div>
     );
   }
