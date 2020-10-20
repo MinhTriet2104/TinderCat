@@ -1,49 +1,37 @@
-.BodyItem {
-  width: 375px;
-  height: 565px;
-
+.ListItem {
+  position: relative;
+  margin: 10px 10px;
+  background: #ffff;
   border-radius: 10px;
-
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  padding:10px 0;
+  top: 10px;
 
   position: relative;
 
   cursor: pointer;
-  overflow: hidden;
-  overflow: auto;
 
-  overflow-x: hidden;
-  overflow-y: scroll;
+  .AvtItem {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-left: 20px;
 
-  .ListItem {
-    position: relative;
-    margin: 10px 10px;
-    background: #ffff;
-    border-radius: 10px;
-    padding:10px 0;
-    top: 10px;
-    .AvtItem {
-      width: 80px;
-      border: 3px solid paleturquoise;
-      border-radius: 70px;
-      margin-left: 20px;
-
-    }
-    .NameItem {
-      color: #5c5c5c;
-      font-size: 1.5em;
-      padding-left: 10px;
-      margin-left: 10px;
-    }
-.ButtonsArea{
-  margin-left: 20px;
-}
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
   }
-}
-::-webkit-scrollbar {
-  width: 0px;
-  background: transparent; /* make scrollbar transparent */
+  .NameItem {
+    color: #5c5c5c;
+    font-size: 1.5em;
+    padding-left: 10px;
+    margin-left: 10px;
+  }
+  .ButtonsArea{
+    position: absolute;
+    right: 0;
+    top: 0;
 
+    transform: translateY(-15px);
 
+    z-index: 5;
+  }
 }
 

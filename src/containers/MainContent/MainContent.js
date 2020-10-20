@@ -73,8 +73,16 @@ const MainContent = () => {
   return (
     <div className="MainContent">
      
+      <Link to="/list">
+        <img 
+          alt="next" 
+          className="toListItem" 
+          src="https://w7.pngwing.com/pngs/767/873/png-transparent-greater-than-sign-symbol-mathematics-signo-greater-than-angle-logo-sign-thumbnail.png" 
+        />
+      </Link>
 
       <Card curCat={curCat}></Card>
+
       <div className="ButtonsArea">
         <ActionButton handleClick={handleNope}>
           <svg
@@ -162,7 +170,6 @@ const MainContent = () => {
 
       <Actioninfo />
 
-<Link to="/list"><img alt="next" className="toListItem" src="https://w7.pngwing.com/pngs/767/873/png-transparent-greater-than-sign-symbol-mathematics-signo-greater-than-angle-logo-sign-thumbnail.png" /></Link>
     </div>
   );
 };
