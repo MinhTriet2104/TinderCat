@@ -4,6 +4,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 // Component
 import AsideNavbar from "./AsideNavbar/AsideNavbar";
 import MainContent from "./MainContent/MainContent";
+import CardInfo from "../components/CardInfo/CardInfo";
 
 
 // styles
@@ -18,6 +19,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={MainContent} />
         <Route exact path="/list" component={MainItem} />
+        <Route path="/detail/:id" component={CardInfo} />
+
 
         <MainProfile />
         <Route>

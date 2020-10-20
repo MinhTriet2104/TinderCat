@@ -34,6 +34,11 @@ export const getCats = async () => {
   return cats.data;
 };
 
+export const getCatInfo = (id) => async () => {
+  const catInfo = await axios.get(API_URL + "cats/"+id);
+  return catInfo.data;
+};
+
 export const getLikes = async () => {
   const likes = await axios.get(API_URL + "likes");
   return likes.data;

@@ -1,6 +1,6 @@
 import React from "react";
-import CardInfo from '../CardInfo/CardInfo';
 import "./Card.scss";
+import Link from "../../common/CustomLink";
 
 class Card extends React.Component {
 
@@ -27,7 +27,9 @@ class Card extends React.Component {
     var age = "";
     var avt = "";
     var urlbg = "url(";
-    var des, bio = "";
+    var des = "";
+    var id="";
+    var idCat = "/detail/";
    
     if(this.props.curCat != null)
     {      
@@ -37,7 +39,7 @@ class Card extends React.Component {
          avt = this.props.curCat.avatar;
          urlbg += avt+")";
          des = this.props.curCat.description;
-         bio = this.props.curCat.bio;
+         id = idCat + this.props.curCat.id;
     }
     else{
       name = '';
@@ -64,23 +66,24 @@ class Card extends React.Component {
           <div className="CardDescription">
             {des}
           </div>
-          <svg
-            viewBox="0 0 24 24"
-            width="26px"
-            height="26px"
-            focusable="false"
-            aria-hidden="false"
-            aria-labelledby="eac4136025b87a6e"
-            role="img"
-            onClick={this.handleClick}
-          >
-            <path
-              fill="#fff"
-              d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
-            ></path>
-            <title id="profile">Open Profile</title>
-          </svg>          
-            {this.state.isToggleOn ? <CardInfo clickDown={this.handleClickDown} name={name} age={age} avatar={avt} des={des} bio={bio}/> : ''}    
+          <Link to={id}>
+            <svg
+              viewBox="0 0 24 24"
+              width="26px"
+              height="26px"
+              focusable="false"
+              aria-hidden="false"
+              aria-labelledby="eac4136025b87a6e"
+              role="img"
+            >
+              <path
+                fill="#fff"
+                d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+              ></path>
+              <title id="profile">Open Profile</title>
+            </svg> 
+          </Link>        
+            
         </div>
       </div>
     );

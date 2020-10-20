@@ -1,0 +1,70 @@
+.Card-Info{
+    margin: 3% auto;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    color: #000000;
+    text-align: left;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.241), 0 6px 20px 0 rgba(0, 0, 0, 0.241);
+    padding: 10px;
+    display: block;
+
+    position: relative;
+    cursor: pointer;
+    width: 375px;
+    height: 565px;
+    .toListItem{
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        cursor: pointer;
+      }    
+    .Located{
+        padding-left: 20px;
+        font-size: 15px;
+        color: #514f4f;
+        .Icon-Locate{
+            top: 17% !important;
+            left: 5px !important;    
+        }
+    }
+    .CardInfo {
+        display: flex;
+        align-items: baseline;
+  
+        .CardAge {
+          font-size: 1.6rem;
+          color: rgb(185, 185, 185);
+  
+          margin-left: 15px;
+        }
+        .CardName {
+            font-size: 1.6rem;
+            color: rgb(49, 49, 49);
+          }        
+      }
+    .Bio{
+        font-size: 1.6rem;
+        color: rgb(43, 42, 42);
+    }
+    .container{
+        height: 50%;
+        .Img-Gallery{
+            padding: 10px ;
+            margin: 0 auto;
+            .Img-Gallery img{
+                border-radius: 5px;
+                margin: 10px 0;
+            }
+        }
+    }
+    
+
+}
+
+
+
+
+
+
