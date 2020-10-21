@@ -21,7 +21,12 @@
   }
 
   .CardMask {
-    background: linear-gradient(360deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 35%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(
+      360deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(255, 255, 255, 0) 35%,
+      rgba(255, 255, 255, 0) 100%
+    );
 
     border-radius: 10px;
 
@@ -48,11 +53,11 @@
       .CardAge {
         font-size: 1.6rem;
         color: rgb(185, 185, 185);
-        
+
         margin-left: 15px;
       }
     }
-    .Icon-Down{
+    .Icon-Down {
       position: relative;
       top: -9%;
       left: 4% !important;
@@ -69,7 +74,7 @@
       right: 5%;
       top: 5%;
 
-      transition: all .3s ease-out;
+      transition: all 0.3s ease-out;
 
       &:hover {
         transform: scale(1.2);
