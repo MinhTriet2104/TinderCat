@@ -14,7 +14,7 @@ class ListItem extends Component {
         <span className="AgeItem">{cat.age}</span>
 
         <div className="ButtonsArea">
-          <ActionButton handleClick={() => handleNope()}>
+          <ActionButton handleClick={() => handleNope(cat.id)}>
             <svg
               height="20px"
               viewBox="0 0 365.71733 365"
