@@ -11,6 +11,14 @@ function LikeList() {
     setLikelist(likeListFromStore);
   }, [likeListFromStore]);
 
+  const deleteLike = (id) => {
+    const findItem = likeList.find((item) => item.id === id);
+    const index = likeList.indexOf(findItem);
+    const tempLikeList = [...likeList];
+    tempLikeList.splice(index, 1);
+    setLikelist(tempLikeList);
+  }
+
   const moveUp = (id) => {
     const findItem = likeList.find((item) => item.id === id);
     const index = likeList.indexOf(findItem);
@@ -50,7 +58,7 @@ function LikeList() {
               </div>
             </div>
             <div className="col-md-6">
-              <button className="btn btn-link btnLikeList">
+              <button className="btn btn-link btnLikeList" onClick={() => deleteLike(like.id)}>
                 <img
                   src="https://icon-library.com/images/icon-delete/icon-delete-16.jpg"
                   alt="delete"
