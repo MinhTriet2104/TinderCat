@@ -53,7 +53,7 @@ function SuperLikeList(props) {
                         margin="dense"
                         id="inputMess"
                         label={superlikelist.name}
-                        fullWidth
+                        fullWidth="50px"
                     />
                     <DialogActions>
                         <Button onClick={handleClickClose} color="primary">
