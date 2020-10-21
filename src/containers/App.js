@@ -17,7 +17,7 @@ function App() {
       <AsideNavbar />
       <Switch>
         <Route exact path="/" component={MainContent} />
-        <Route exact path="/list" component={MainItem} />
+        <Route path="/list" component={MainItem} />
 
         <MainProfile />
         <Route>
