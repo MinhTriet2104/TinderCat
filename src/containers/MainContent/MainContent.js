@@ -77,7 +77,7 @@ const MainContent = () => {
         <img 
           alt="next" 
           className="toListItem" 
-          src="https://w7.pngwing.com/pngs/767/873/png-transparent-greater-than-sign-symbol-mathematics-signo-greater-than-angle-logo-sign-thumbnail.png" 
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Font_Awesome_5_solid_list.svg/1024px-Font_Awesome_5_solid_list.svg.png" 
         />
       </Link>
 
