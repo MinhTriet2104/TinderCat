@@ -11,35 +11,35 @@ import {
   Button,
 } from "@material-ui/core";
 
-function SuperLikeList(props) {
-  const superlikelist = useSelector((state) => state.superlikelist);
-  const [splikes, setSuperLikeList] = useState([]);
-  //move up index, move down index
+function SuperLikeList() {
+  const SuperLikeListFromStore = useSelector((state) => state.superlikelist);
+  const [superlikelist, setSuperLikelist] = useState([]);
+
   useEffect(() => {
-    setSuperLikeList(superlikelist);
-  }, [superlikelist]);
+    setSuperLikelist(SuperLikeListFromStore);
+  }, [SuperLikeListFromStore]);
 
   const moveUp = (id) => {
-    const findItem = splikes.find((item) => item.id === id);
-    const index = splikes.indexOf(findItem);
+    const findItem = superlikelist.find((item) => item.id === id);
+    const index = superlikelist.indexOf(findItem);
 
     if (index === 0) return;
 
-    const tempSuperLikeList = [...splikes];
+    const tempSuperLikeList = [...superlikelist];
     tempSuperLikeList.splice(index, 1);
     tempSuperLikeList.splice(index - 1, 0, findItem);
-    setSuperLikeList(tempSuperLikeList);
+    setSuperLikelist(tempSuperLikeList);
   };
 
   const moveDown = (id) => {
-    const findItem = splikes.find((item) => item.id === id);
-    const index = splikes.indexOf(findItem);
+    const findItem = superlikelist.find((item) => item.id === id);
+    const index = superlikelist.indexOf(findItem);
 
-    if (index === splikes.length - 1) return;
-    const tempSuperLikeList = [...splikes];
+    if (index === superlikelist.length - 1) return;
+    const tempSuperLikeList = [...superlikelist];
     tempSuperLikeList.splice(index, 1);
     tempSuperLikeList.splice(index + 1, 0, findItem);
-    setSuperLikeList(tempSuperLikeList);
+    setSuperLikelist(tempSuperLikeList);
   };
 
   //open dialog message
@@ -88,7 +88,6 @@ function SuperLikeList(props) {
                     autoFocus
                     margin="dense"
                     id="inputMess"
-                    label={superlikelist.name}
                     fullWidth
                   />
                   <DialogActions>
