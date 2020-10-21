@@ -55,6 +55,8 @@
   justify-content: center;
   align-items: center;
 
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+
   .LoginWrapper {
     height: 500px;
     width: 650px;
@@ -69,7 +71,7 @@
     .LeftSection {
       width: 40%;
 
-      background-image: url("https://i.pinimg.com/564x/3c/e5/f6/3ce5f6f5ee9dba8cfb2445cbe94eae10.jpg");
+      background-image: url(../../images/cat.png);
       background-size: cover;
       background-position: center;
     }
