@@ -12,12 +12,21 @@ import "./Login.scss";
 // images
 import GoogleIcon from "../../images/google_icon.svg";
 import FacebookIcon from "../../images/facebook_icon.svg";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
+
+  const history = useHistory();
+
   const responseFacebook = async (res) => {
-    console.log(res);
+    if (res.status !== "unknown")
+    {
+      history.push("/");
+      console.log(res);
+    }
   };
 
+  
   const responseGoogle = async (res) => {
     console.log(res);
   };
