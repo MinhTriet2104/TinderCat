@@ -53,7 +53,8 @@ export const requestAddSuperLikeList = (cat, accessToken, cb) => async (
       data,
       config
     );
-    console.log(res)
+    
+    if (res.status === 403) return alert("Bạn không phải là VIP!");
     dispatch(addSuperLikeList(res.data));
     alert('Super Like Success');
     cb();
