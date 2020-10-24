@@ -34,9 +34,32 @@ export const addLikeList = (cat) => ({
   cat,
 });
 
-export const requestAddSuperLikeList = (cat) => async (dispatch) => {
-  const res = await axios.post(API_URL + "superlikes", cat);
-  dispatch(addSuperLikeList(res.data));
+export const requestAddSuperLikeList = (cat, accessToken, cb) => async (
+  dispatch
+) => {
+  try {
+    const data = {
+      cat
+    }
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    };
+
+    const res = await axios.post( 
+      "http://localhost:8080/superlike",
+      data,
+      config
+    );
+    console.log(res)
+    dispatch(addSuperLikeList(res.data));
+    alert('Super Like Success');
+    cb();
+  } catch (err) {
+    alert(err);
+  }
 };
 
 export const addSuperLikeList = (cat) => ({

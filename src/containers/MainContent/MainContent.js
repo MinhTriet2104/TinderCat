@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import axios from "axios";
 import Link from "../../common/CustomLink";
 
 // Components
@@ -24,8 +25,44 @@ import { getCats, getLikes, getSuperLikes } from "../../helpers";
 const MainContent = () => {
   const [cats, setCats] = useState([]);
   const [curCat, setCurCats] = useState(null);
+  const [accessToken, setAccessToken] = useState(null);
+  const [refreshToken, setRefreshToken] = useState(null);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const token = await axios.post("http://localhost:8080/auth/login", {
+          username: "minhtriet2104",
+          password: "1",
+        });
+        setAccessToken(token.data.accessToken);
+        setRefreshToken(token.data.refreshToken);
+      } catch (err) {
+        console.log(err);
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
+    if (!accessToken) return;
+
+    (async () => {
+      try {
+        const config = {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        };
+
+        const users = await axios.get("http://localhost:8080/users", config);
+        console.log(users);
+      } catch (err) {
+        console.log(err);
+      }
+    })();
+  }, [accessToken]);
 
   useEffect(() => {
     (async () => {
@@ -61,9 +98,13 @@ const MainContent = () => {
   };
 
   const handleSuperLike = () => {
-    dispatch(requestAddSuperLikeList(curCat));
-    setCats(updateCatsAfterClick(cats));
-  };
+    dispatch(
+      requestAddSuperLikeList(curCat, accessToken, () =>
+        setCats(updateCatsAfterClick(cats))
+      )
+    );
+    // setCats(updateCatsAfterClick(cats));
+  };;
 
   const handleLike = () => {
     dispatch(requestAddLikeList(curCat));
@@ -72,12 +113,11 @@ const MainContent = () => {
 
   return (
     <div className="MainContent">
-     
       <Link to="/list">
-        <img 
-          alt="next" 
-          className="toListItem" 
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Font_Awesome_5_solid_list.svg/1024px-Font_Awesome_5_solid_list.svg.png" 
+        <img
+          alt="next"
+          className="toListItem"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Font_Awesome_5_solid_list.svg/1024px-Font_Awesome_5_solid_list.svg.png"
         />
       </Link>
 
@@ -169,7 +209,6 @@ const MainContent = () => {
       </div>
 
       <Actioninfo />
-
     </div>
   );
 };
