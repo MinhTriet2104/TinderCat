@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 import GoogleLogin from "react-google-login";
-import { useHistory } from "react-router-dom";
-import { Redirect } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 
 // components
 import TextField from "@material-ui/core/TextField";
@@ -16,25 +15,24 @@ import GoogleIcon from "../../images/google_icon.svg";
 import FacebookIcon from "../../images/facebook_icon.svg";
 
 const Login = () => {
-
   const history = useHistory();
 
   const responseFacebook = async (res) => {
-    if (res.status !== "unknown")
-    {
+    if (res.status !== "unknown") {
+      localStorage.setItem("accessToken", res.accessToken);
       history.replace("/");
       console.log(res);
     }
   };
 
-  
   const responseGoogle = async (res) => {
     console.log(res);
   };
 
+  if (localStorage.getItem("accessToken")) return <Redirect to="/" />;
+
   return (
     <div className="LoginContainer">
-      {localStorage.getItem("accessToken") ? <Redirect to="/" /> : null}
       <div className="LoginWrapper">
         <div className="LeftSection"></div>
         <div className="RightSection">

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from "react-redux";
 import { createStore, compose, applyMiddleware } from "redux";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import thunk from "redux-thunk";
 
@@ -24,14 +24,14 @@ ReactDOM.render(
     <Provider store={store}>
       <Router>
         <Switch>
-
           <Route exact path="/login" component={Login} />
           {/* <Route path="/" component={App} /> */}
 
-          <Route path="/">
-            {localStorage.getItem('accessToken') ?  <App /> : <Redirect to="/login" />}
+          <Route exact path="/" component={App}>
+            {/* {localStorage.getItem("accessToken") ? null : (
+              <Redirect to="/login" />
+            )} */}
           </Route>
-          
         </Switch>
       </Router>
     </Provider>
