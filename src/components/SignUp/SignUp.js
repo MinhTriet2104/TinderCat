@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {userPost} from '../../actions/index';
+import { Redirect } from "react-router-dom";
 
 class Signup extends Component {
     state = {
@@ -20,6 +21,7 @@ class Signup extends Component {
     }
   
     render() {
+      if (localStorage.getItem("accessToken")) return <Redirect to="/" />;
       return (
         <div className="LoginContainer">
         <div className="LoginWrapper">
