@@ -12,7 +12,7 @@ import Login from "./components/Login/Login";
 import './index.scss'
 
 import reducer from "./reducers/index";
-import SignUp from './components/SignUp/SignUp';
+import Signup from './components/SignUp/SignUp';
 
 const composeEnhancers =
   (typeof window !== "undefined" &&
@@ -33,7 +33,7 @@ ReactDOM.render(
               <Redirect to="/login" />
             )} */}
           </Route>
-          <Route path="/signup" component={SignUp} />
+          <Route path="/signup" component={Signup} />
         </Switch>
       </Router>
     </Provider>
