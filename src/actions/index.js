@@ -101,6 +101,6 @@ export const userPost = (user) => {
 }
 
 const loginUser = (user) => ({
-    type: 'LOGIN_USER',
+    type: types.LOGIN_USER,
     payload: user
 })
