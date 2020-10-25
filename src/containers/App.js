@@ -20,8 +20,8 @@ function App() {
       <AsideNavbar />
       <Switch>
         <Route exact path="/" component={MainContent} />
-        <Route path="/list" component={MainItem} />
-        <Route path="/detail/:id" component={CardInfo} />
+        <Route exact path="/list" component={MainItem} />
+        <Route exact path="/detail/:id" component={CardInfo} />
 
         <MainProfile />
       </Switch>

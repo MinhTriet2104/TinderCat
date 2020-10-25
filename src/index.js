@@ -28,12 +28,12 @@ ReactDOM.render(
           <Route exact path="/login" component={Login} />
           {/* <Route path="/" component={App} /> */}
 
-          <Route exact path="/" component={App}>
+          <Route path="/" component={App}>
             {/* {localStorage.getItem("accessToken") ? null : (
               <Redirect to="/login" />
             )} */}
           </Route>
-          <Route  path="/signup" component={SignUp} />
+          <Route path="/signup" component={SignUp} />
         </Switch>
       </Router>
     </Provider>

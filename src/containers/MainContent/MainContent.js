@@ -104,7 +104,7 @@ const MainContent = () => {
       requestAddSuperLikeList(curCat, () => setCats(updateCatsAfterClick(cats)))
     );
     // setCats(updateCatsAfterClick(cats));
-  };;
+  };
 
   const handleLike = () => {
     dispatch(requestAddLikeList(curCat));
