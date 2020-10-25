@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 import GoogleLogin from "react-google-login";
-import { useHistory, Redirect } from "react-router-dom";
+import { useHistory, Redirect, Link } from "react-router-dom";
 
 // components
 import TextField from "@material-ui/core/TextField";
@@ -45,10 +45,11 @@ const Login = () => {
             <Button variant="outlined" color="primary">
               Login
             </Button>
-
+            <Link to="/signup" className="AvatarWrapper">
             <Button variant="outlined" color="secondary">
               SignUp
             </Button>
+            </Link>
           </div>
 
           <h5>Or With</h5>
