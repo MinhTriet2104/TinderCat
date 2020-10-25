@@ -34,13 +34,14 @@ export const addLikeList = (cat) => ({
   cat,
 });
 
-export const requestAddSuperLikeList = (cat, accessToken, cb) => async (
-  dispatch
-) => {
+export const requestAddSuperLikeList = (cat, cb) => async (dispatch) => {
   try {
+    const accessToken = localStorage.getItem('accessToken');
+    const refreshToken = localStorage.getItem('refreshToken')
+
     const data = {
-      cat
-    }
+      cat,
+    };
 
     const config = {
       headers: {
@@ -48,15 +49,24 @@ export const requestAddSuperLikeList = (cat, accessToken, cb) => async (
       },
     };
 
-    const res = await axios.post( 
+    const res = await axios.post(
       "http://localhost:8080/superlike",
       data,
       config
     );
+
+    if (res.data.status === 401 && res.data.err === "TokenExpiredError") {
+      const res = await axios.post(
+        "http://localhost:8080/auth/refresh",
+        { refreshToken },
+      );
+      localStorage.setItem("accessToken", res.data.accessToken);
+
+      return dispatch(requestAddSuperLikeList(cat, cb));
+    }
     
-    if (res.status === 403) return alert("Bạn không phải là VIP!");
     dispatch(addSuperLikeList(res.data));
-    alert('Super Like Success');
+    alert("Super Like Success");
     cb();
   } catch (err) {
     alert(err);
