@@ -1,18 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, compose, applyMiddleware } from "redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import thunk from "redux-thunk";
 
-import App from './containers/App';
+import App from "./containers/App";
 import Login from "./components/Login/Login";
 
-import './index.scss'
+import "./index.scss";
 
 import reducer from "./reducers/index";
-import SignUp from './components/SignUp/SignUp';
+import SignUp from "./components/SignUp/SignUp";
 
 const composeEnhancers =
   (typeof window !== "undefined" &&

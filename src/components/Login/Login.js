@@ -46,7 +46,7 @@ const Login = () => {
             <Button variant="outlined" color="primary">
               Login
             </Button>
-            <Link to="signup">
+            <Link to="/signup">
             <Button variant="outlined" color="secondary">
               SignUp
             </Button>
