@@ -39,6 +39,8 @@ const MainContent = () => {
         });
         setAccessToken(token.data.accessToken);
         setRefreshToken(token.data.refreshToken);
+        localStorage.setItem("accessToken", token.data.accessToken);
+        localStorage.setItem("refreshToken", token.data.refreshToken);
       } catch (err) {
         console.log(err);
       }
@@ -99,9 +101,7 @@ const MainContent = () => {
 
   const handleSuperLike = () => {
     dispatch(
-      requestAddSuperLikeList(curCat, accessToken, () =>
-        setCats(updateCatsAfterClick(cats))
-      )
+      requestAddSuperLikeList(curCat, () => setCats(updateCatsAfterClick(cats)))
     );
     // setCats(updateCatsAfterClick(cats));
   };;
