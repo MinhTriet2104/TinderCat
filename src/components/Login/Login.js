@@ -2,11 +2,6 @@ import React, { useState } from "react";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 import GoogleLogin from "react-google-login";
 import { useHistory, Redirect } from "react-router-dom";
-import Link from "../../common/CustomLink";
-
-// components
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 
 // styles
 import "./Login.scss";
@@ -14,6 +9,7 @@ import "./Login.scss";
 // images
 import GoogleIcon from "../../images/google_icon.svg";
 import FacebookIcon from "../../images/facebook_icon.svg";
+import InputLogin from "./InputLogin";
 
 const Login = () => {
   const history = useHistory();
@@ -39,19 +35,7 @@ const Login = () => {
         <div className="RightSection">
           <h2 className="LoginTitle">Login With</h2>
 
-          <TextField label="Username" />
-          <TextField label="Password" />
-
-          <div className="ButtonGroup">
-            <Button variant="outlined" color="primary">
-              Login
-            </Button>
-            <Link to="/signup">
-            <Button variant="outlined" color="secondary">
-              SignUp
-            </Button>
-            </Link>
-          </div>
+          <InputLogin />
 
           <h5>Or With</h5>
 
