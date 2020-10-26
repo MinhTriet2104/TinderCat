@@ -36,8 +36,8 @@ export const addLikeList = (cat) => ({
 
 export const requestAddSuperLikeList = (cat, cb) => async (dispatch) => {
   try {
-    const accessToken = localStorage.getItem('accessToken');
-    const refreshToken = localStorage.getItem('refreshToken')
+    const accessToken = localStorage.getItem("accessToken");
+    const refreshToken = localStorage.getItem("refreshToken");
 
     const data = {
       cat,
@@ -56,15 +56,14 @@ export const requestAddSuperLikeList = (cat, cb) => async (dispatch) => {
     );
 
     if (res.data.status === 401 && res.data.err === "TokenExpiredError") {
-      const res = await axios.post(
-        "http://localhost:8080/auth/refresh",
-        { refreshToken },
-      );
+      const res = await axios.post("http://localhost:8080/auth/refresh", {
+        refreshToken,
+      });
       localStorage.setItem("accessToken", res.data.accessToken);
 
       return dispatch(requestAddSuperLikeList(cat, cb));
     }
-    
+
     dispatch(addSuperLikeList(res.data));
     alert("Super Like Success");
     cb();
@@ -80,27 +79,51 @@ export const addSuperLikeList = (cat) => ({
 
 //Nhu
 export const userPost = (user) => {
-  return dispatch => {
+  return (dispatch) => {
     return fetch("http://localhost:8080/auth/register", {
       method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
-      body: JSON.stringify({user})
+      body: JSON.stringify({ user }),
     })
-      .then(resp => resp.json())
-      .then(data => {
+      .then((resp) => resp.json())
+      .then((data) => {
         if (data.message) {
         } else {
-          localStorage.setItem("accessToken", data.jwt)
-          dispatch(loginUser(data.user))
+          localStorage.setItem("accessToken", data.accessToken);
+          localStorage.setItem("refreshToken", data.refreshToken);
+          // dispatch(loginUser(data.user));
+          
         }
-      })
-  }
-}
+      });
+  };
+};
 
-const loginUser = (user) => ({
-    type: 'LOGIN_USER',
-    payload: user
-})
+// const loginUser = (user) => ({
+//   type: "LOGIN_USER",
+//   payload: user,
+// });
+
+export const userLogin = (user) => {
+  return (dispatch) => {
+    return fetch("http://localhost:8080/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ ...user }),
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        if (data.message) {
+        } else {
+          localStorage.setItem("accessToken", data.accessToken);
+          localStorage.setItem("refreshToken", data.refreshToken);
+          // dispatch(loginUser(data.user));
+        }
+      });
+  };
+};

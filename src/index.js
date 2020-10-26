@@ -27,7 +27,6 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/login" component={Login} />
           {/* <Route path="/" component={App} /> */}
-
           <Route exact path="/signup" component={SignUp} />
           <Route path="/" component={App}>
             {/* {localStorage.getItem("accessToken") ? null : (
