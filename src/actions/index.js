@@ -92,17 +92,19 @@ export const userPost = (user) => {
       .then((data) => {
         if (data.message) {
         } else {
-          localStorage.setItem("accessToken", data.jwt);
-          dispatch(loginUser(data.user));
+          localStorage.setItem("accessToken", data.accessToken);
+          localStorage.setItem("refreshToken", data.refreshToken);
+          // dispatch(loginUser(data.user));
+          
         }
       });
   };
 };
 
-const loginUser = (user) => ({
-  type: "LOGIN_USER",
-  payload: user,
-});
+// const loginUser = (user) => ({
+//   type: "LOGIN_USER",
+//   payload: user,
+// });
 
 export const userLogin = (user) => {
   return (dispatch) => {
@@ -112,14 +114,15 @@ export const userLogin = (user) => {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify({ user }),
+      body: JSON.stringify({ ...user }),
     })
       .then((resp) => resp.json())
       .then((data) => {
         if (data.message) {
         } else {
-          localStorage.setItem("token", data.jwt);
-          dispatch(loginUser(data.user));
+          localStorage.setItem("accessToken", data.accessToken);
+          localStorage.setItem("refreshToken", data.refreshToken);
+          // dispatch(loginUser(data.user));
         }
       });
   };
