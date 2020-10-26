@@ -6,11 +6,11 @@ import AsideNavbar from "./AsideNavbar/AsideNavbar";
 import MainContent from "./MainContent/MainContent";
 import CardInfo from "../components/CardInfo/CardInfo";
 
-
 // styles
 import "./App.scss";
 import MainProfile from "./Profile/MainProfile";
 import MainItem from "../components/ListItem/MainItem";
+import Logout from "../components/Logout/Logout";
 
 function App() {
   if (!localStorage.getItem("accessToken")) return <Redirect to="/login" />;
@@ -25,6 +25,10 @@ function App() {
 
         <MainProfile />
       </Switch>
+      <div className="Logout">
+        {" "}
+        <Logout></Logout>
+      </div>
     </div>
   );
 }

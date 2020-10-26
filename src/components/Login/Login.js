@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 import GoogleLogin from "react-google-login";
 import { useHistory, Redirect } from "react-router-dom";
@@ -27,7 +27,11 @@ const Login = () => {
   };
 
   const responseGoogle = async (res) => {
-    console.log(res);
+    if (res.profileObj.name) {
+      localStorage.setItem("accessToken", res.accessToken);
+      history.replace("/");
+      console.log(res);
+    }
   };
 
   if (localStorage.getItem("accessToken")) return <Redirect to="/" />;
@@ -47,9 +51,9 @@ const Login = () => {
               Login
             </Button>
             <Link to="signup">
-            <Button variant="outlined" color="secondary">
-              SignUp
-            </Button>
+              <Button variant="outlined" color="secondary">
+                SignUp
+              </Button>
             </Link>
           </div>
 

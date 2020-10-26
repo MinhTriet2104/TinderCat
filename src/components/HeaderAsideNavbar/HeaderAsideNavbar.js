@@ -1,8 +1,7 @@
 import React from "react";
 
 // Components
-import Link from '../../common/CustomLink';
-
+import Link from "../../common/CustomLink";
 // style
 import "./HeaderAsideNavbar.scss";
 
