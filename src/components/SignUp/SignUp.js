@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {userPost} from '../../actions/index';
+// import {userPost} from '../../actions/index';
 import { Redirect } from "react-router-dom";
 
 class Signup extends Component {
@@ -8,6 +8,25 @@ class Signup extends Component {
       username: "",
       password: "",
     }
+
+    userPost = (user) => {
+        return fetch("http://localhost:8080/auth/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({ user }),
+        })
+          .then((resp) => resp.json())
+          .then((data) => {
+            if (data.message) {
+            } else {
+              localStorage.setItem("accessToken", data.accessToken);
+              localStorage.setItem("refreshToken", data.refreshToken);
+            }
+          });
+    };
   
     handleChange = event => {
       this.setState({
@@ -17,7 +36,8 @@ class Signup extends Component {
   
     handleSubmit = event => {
       event.preventDefault()
-      this.props.userPost(this.state)
+      // this.props.userPost(this.state)
+      this.userPost(this.state)
     }
   
     render() {
@@ -57,8 +77,9 @@ class Signup extends Component {
     }
   }
   
-  const mapDispatchToProps = dispatch => ({
-    userPost: user => dispatch(userPost(user))
-  })
+  // const mapDispatchToProps = dispatch => ({
+  //   userPost: user => dispatch(userPost(user))
+  // })
   
-  export default connect(null, mapDispatchToProps)(Signup);
+  // export default connect(null, mapDispatchToProps)(Signup);
+  export default Signup;

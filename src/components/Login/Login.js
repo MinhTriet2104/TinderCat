@@ -39,7 +39,7 @@ const Login = () => {
         <div className="RightSection">
           <h2 className="LoginTitle">Login With</h2>
 
-          <TextField label="Username" />
+          {/* <TextField label="Username" />
           <TextField label="Password" />
 
           <div className="ButtonGroup">
@@ -51,8 +51,8 @@ const Login = () => {
                 SignUp
               </Button>
             </Link>
-          </div>
-
+          </div> */}
+          <InputLogin/>
           <h5>Or With</h5>
 
           <FacebookLogin
