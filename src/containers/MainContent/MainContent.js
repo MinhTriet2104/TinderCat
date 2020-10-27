@@ -30,41 +30,41 @@ const MainContent = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const token = await axios.post("http://localhost:8080/auth/login", {
-          username: "minhtriet2104",
-          password: "1",
-        });
-        setAccessToken(token.data.accessToken);
-        setRefreshToken(token.data.refreshToken);
-        localStorage.setItem("accessToken", token.data.accessToken);
-        localStorage.setItem("refreshToken", token.data.refreshToken);
-      } catch (err) {
-        console.log(err);
-      }
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const token = await axios.post("http://localhost:8080/auth/login", {
+  //         username: "minhtriet2104",
+  //         password: "1",
+  //       });
+  //       setAccessToken(token.data.accessToken);
+  //       setRefreshToken(token.data.refreshToken);
+  //       localStorage.setItem("accessToken", token.data.accessToken);
+  //       localStorage.setItem("refreshToken", token.data.refreshToken);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   })();
+  // }, []);
 
-  useEffect(() => {
-    if (!accessToken) return;
+  // useEffect(() => {
+  //   if (!accessToken) return;
 
-    (async () => {
-      try {
-        const config = {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        };
+  //   (async () => {
+  //     try {
+  //       const config = {
+  //         headers: {
+  //           Authorization: `Bearer ${accessToken}`,
+  //         },
+  //       };
 
-        const users = await axios.get("http://localhost:8080/users", config);
-        console.log(users);
-      } catch (err) {
-        console.log(err);
-      }
-    })();
-  }, [accessToken]);
+  //       const users = await axios.get("http://localhost:8080/users", config);
+  //       console.log(users);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   })();
+  // }, [accessToken]);
 
   useEffect(() => {
     (async () => {
