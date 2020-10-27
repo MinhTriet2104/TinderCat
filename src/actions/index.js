@@ -106,24 +106,3 @@ export const addSuperLikeList = (cat) => ({
 //   payload: user,
 // });
 
-export const userLogin = (user) => {
-  return (dispatch) => {
-    return fetch("http://localhost:8080/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({ ...user }),
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        if (data.message) {
-        } else {
-          localStorage.setItem("accessToken", data.accessToken);
-          localStorage.setItem("refreshToken", data.refreshToken);
-          // dispatch(loginUser(data.user));
-        }
-      });
-  };
-};

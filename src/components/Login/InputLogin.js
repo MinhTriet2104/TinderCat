@@ -1,16 +1,33 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { userLogin } from "../../actions/index";
 import Link from "../../common/CustomLink";
 import { Redirect } from "react-router-dom";
 // components
 import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import { Form } from "react-bootstrap";
+
 class InputLogin extends Component {
   state = {
     username: "",
     password: "",
+  };
+
+  userLogin = (user) => {
+    return fetch("http://localhost:8080/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ ...user }),
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        if (data.message) {
+        } else {
+          localStorage.setItem("accessToken", data.accessToken);
+          localStorage.setItem("refreshToken", data.refreshToken);
+          // dispatch(loginUser(data.user));
+        }
+      });
   };
 
   handleChange = (event) => {
@@ -21,7 +38,7 @@ class InputLogin extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.userLogin(this.state);
+    this.userLogin(this.state);
   };
 
   render() {
@@ -68,8 +85,4 @@ class InputLogin extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  userLogin: (userInfo) => dispatch(userLogin(userInfo)),
-});
-
-export default connect(null, mapDispatchToProps)(InputLogin);
+export default InputLogin;
