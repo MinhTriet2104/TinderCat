@@ -64,16 +64,12 @@ class InputLogin extends Component {
         <br />
         <div className="ButtonGroup">
           <button
-            variant="outlined"
-            color="primary"
             className="btn btn-outline-success"
           >
             Login
           </button>
           <Link to="/signup">
             <button
-              variant="outlined"
-              color="secondary"
               className="btn btn-outline-danger"
             >
               SignUp
