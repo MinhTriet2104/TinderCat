@@ -3,8 +3,10 @@ import { useHistory } from "react-router-dom";
 
 function Logout() {
   const history = useHistory();
-  function handleClick(e) {
+  
+  function handleClick() {
     localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
     history.replace("/login");
   }
 
