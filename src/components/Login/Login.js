@@ -52,7 +52,7 @@ const Login = () => {
               </Button>
             </Link>
           </div> */}
-          <InputLogin/>
+          <InputLogin redirectToHome={() => history.replace("/")} />
           <h5>Or With</h5>
 
           <FacebookLogin

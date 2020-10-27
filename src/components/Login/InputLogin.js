@@ -5,6 +5,10 @@ import { Redirect } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 
 class InputLogin extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   state = {
     username: "",
     password: "",
@@ -22,10 +26,13 @@ class InputLogin extends Component {
       .then((resp) => resp.json())
       .then((data) => {
         if (data.message) {
+          alert(data.message);
         } else {
           localStorage.setItem("accessToken", data.accessToken);
           localStorage.setItem("refreshToken", data.refreshToken);
           // dispatch(loginUser(data.user));
+          alert('Login Successfully');
+          this.props.redirectToHome();
         }
       });
   };
