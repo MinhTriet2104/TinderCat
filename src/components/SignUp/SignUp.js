@@ -10,6 +10,10 @@ class Signup extends Component {
   };
 
   userPost = (user) => {
+    const { username, password } = this.state;
+    if (username.trim() === "" || password.trim() === "")
+      return alert("Username Or Password is NULL");
+
     return fetch("http://localhost:8080/auth/register", {
       method: "POST",
       headers: {
