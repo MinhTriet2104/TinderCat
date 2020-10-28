@@ -29,7 +29,7 @@ class Signup extends Component {
         } else {
           localStorage.setItem("accessToken", data.accessToken);
           localStorage.setItem("refreshToken", data.refreshToken);
-          alert("Login Successfully");
+          alert("Signup Successfully");
           this.props.history.replace("/");
         }
       });
